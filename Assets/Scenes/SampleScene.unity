@@ -340,7 +340,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1973568603}
         m_TargetAssemblyTypeName: JakeTest, Assembly-CSharp
-        m_MethodName: OnButtonClick
+        m_MethodName: NumberClicked
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -742,7 +742,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1973568603}
         m_TargetAssemblyTypeName: JakeTest, Assembly-CSharp
-        m_MethodName: OnButtonClick
+        m_MethodName: NumberClicked
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -875,7 +875,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1973568603}
         m_TargetAssemblyTypeName: JakeTest, Assembly-CSharp
-        m_MethodName: OnButtonClick
+        m_MethodName: NumberClicked
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1008,7 +1008,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1973568603}
         m_TargetAssemblyTypeName: JakeTest, Assembly-CSharp
-        m_MethodName: OnButtonClick
+        m_MethodName: NumberClicked
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2078,7 +2078,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1973568603}
         m_TargetAssemblyTypeName: JakeTest, Assembly-CSharp
-        m_MethodName: OnButtonClick
+        m_MethodName: NumberClicked
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3354,7 +3354,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1973568603}
         m_TargetAssemblyTypeName: JakeTest, Assembly-CSharp
-        m_MethodName: OnButtonClick
+        m_MethodName: NumberClicked
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3651,7 +3651,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: '*'
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1483808881
@@ -3913,7 +3913,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1973568603}
         m_TargetAssemblyTypeName: JakeTest, Assembly-CSharp
-        m_MethodName: OnButtonClick
+        m_MethodName: NumberClicked
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4315,7 +4315,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1973568603}
         m_TargetAssemblyTypeName: JakeTest, Assembly-CSharp
-        m_MethodName: OnButtonClick
+        m_MethodName: NumberClicked
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4924,7 +4924,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1973568603}
         m_TargetAssemblyTypeName: JakeTest, Assembly-CSharp
-        m_MethodName: OnButtonClick
+        m_MethodName: NumberClicked
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5057,7 +5057,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1973568603}
         m_TargetAssemblyTypeName: JakeTest, Assembly-CSharp
-        m_MethodName: OnButtonClick
+        m_MethodName: NumberClicked
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5150,11 +5150,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outputField: {fileID: 499458445}
-  firstInput: 0
-  secondInput: 0
-  arithmeticOperatorPressed: 0
-  numberPressed: 0
-  lastArithmeticOperatorOperation: 
+  firstNumber: 0
+  secondNumber: 0
+  lastOperatorClicked: 
+  operatorClicked: 0
+  numberClicked: 0
 --- !u!1 &2002027313
 GameObject:
   m_ObjectHideFlags: 0
