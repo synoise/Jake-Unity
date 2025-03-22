@@ -4,84 +4,90 @@ using UnityEngine.UI;
 using TMPro;
 public class JakeTest : MonoBehaviour
 {
+    private TMP_InputField tmpInputField;
     public GameObject outputField;
-    [SerializeField] private int zmienna;
-    [SerializeField] private bool arithmeticOperatorPressed;
-    [SerializeField] private string lastArithmeticOperatorOperation;
+    [SerializeField] private int firstNumber;
+    [SerializeField] private int secondNumber;
+    [SerializeField] private string lastOperatorClicked;
+    [SerializeField] private bool operatorClicked;
+    [SerializeField] private bool numberClicked;
 
-    void Start()
+    void Awake()
     {
-        TMP_InputField tmpInputField = outputField.GetComponent<TMP_InputField>();
+        tmpInputField = outputField.GetComponent<TMP_InputField>();
         tmpInputField.text = "";
     }
 
-
-    public void OnButtonClick(int param = 0)
+    public void NumberClicked(int param = 0)
     {
-        Debug.Log("OnButtonClick, " + param);
-        TMP_InputField tmpInputField = outputField.GetComponent<TMP_InputField>();
-
-        if (arithmeticOperatorPressed)
+        if (operatorClicked)
         {
-            arithmeticOperatorPressed = false;
+            operatorClicked = false;
+            numberClicked = true;
             tmpInputField.text = param.ToString();
         }
         else
         {
+            numberClicked = true;
             tmpInputField.text += param.ToString();
         }
-
     }
 
-    public void ArithmeticOperation(string operation)
+    public void OperatorClicked(string operation)
     {
-        TMP_InputField tmpInputField = outputField.GetComponent<TMP_InputField>();
-        Debug.Log("arithmeticOperation {operation}");
+        operatorClicked = true;
 
-        arithmeticOperatorPressed = true;
-
-        if (zmienna > 0)
+        if (numberClicked)
         {
-            switch (lastArithmeticOperatorOperation)
+            secondNumber = int.Parse(tmpInputField.text);
+        }
+        numberClicked = false;
+
+        Calculate();
+        lastOperatorClicked = operation;
+    }
+
+    public void SumClicked()
+    {
+        OperatorClicked(lastOperatorClicked);
+    }
+
+    public void ClearClicked()
+    {
+        outputField.GetComponent<TMP_InputField>().text = "";
+        tmpInputField.text = "";
+        firstNumber = 0;
+        secondNumber = 0;
+        operatorClicked = false;
+        numberClicked = false;
+        lastOperatorClicked = "";
+    }
+    private void Calculate()
+    {
+        if (lastOperatorClicked != "")
+        {
+            switch (lastOperatorClicked)
             {
                 case "+":
-                    zmienna += int.Parse(tmpInputField.text);
-                    tmpInputField.text = zmienna.ToString();
+                    firstNumber += secondNumber;
                     break;
                 case "-":
-                    zmienna -= int.Parse(tmpInputField.text);
-                    tmpInputField.text = zmienna.ToString();
+                    firstNumber -= secondNumber;
                     break;
                 case "*":
-                    zmienna *= int.Parse(tmpInputField.text);
-                    tmpInputField.text = zmienna.ToString();
+                    firstNumber *= secondNumber;
                     break;
                 case "/":
-                    zmienna /= int.Parse(tmpInputField.text);
-                    tmpInputField.text = zmienna.ToString();
+                    firstNumber /= secondNumber;
                     break;
             }
+            tmpInputField.text = firstNumber.ToString();
         }
         else
         {
-            zmienna = int.Parse(tmpInputField.text);
+            firstNumber = tmpInputField.text.Length > 0 ? int.Parse(tmpInputField.text) : firstNumber;
             tmpInputField.text = "";
         }
-        lastArithmeticOperatorOperation = operation;
-    }
-
-    public void Sum()
-    {
-        ArithmeticOperation(lastArithmeticOperatorOperation);
-    }
-
-    public void Clear()
-    {
-        outputField.GetComponent<TMP_InputField>().text = "";
-        zmienna = 0;
-        arithmeticOperatorPressed = false;
-        lastArithmeticOperatorOperation = "";
-
     }
 
     void Update()
